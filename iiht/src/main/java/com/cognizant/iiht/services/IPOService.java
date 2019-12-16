@@ -17,8 +17,10 @@ public class IPOService {
 	public List<IPODetails> getUpcomingIPO() {
 		
 		return ipoRepository.findUpcomingIPO();
-		
-		
+		}
+	
+	public void addIPO(IPODetails ipo){
+	     ipoRepository.save(ipo);	
 	}
 
 }

@@ -23,7 +23,7 @@ public class Company {
 	@Column(name="board_of_directors")
 	private String boardOfDirectors;
 	
-	@Column(name="listed_stock_exchange")
+	@Column(name="listed_in_stock_exchange")
 	private boolean listedInStockExchnage;
 	
 	@Column(name="sector")

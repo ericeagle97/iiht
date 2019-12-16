@@ -25,7 +25,7 @@ public class IPODetails {
 	@Column(name="total_shares")
 	private int totalNumberOfShares;
 	
-	@Column(name="open_date")
+	@Column(name="open_date_time")
 	private LocalDateTime openDateTime;
 	
 
@@ -34,15 +34,14 @@ public class IPODetails {
 	private String remarks;
 
 	public IPODetails(int id, String companyName, String stockExchange, int pricePerShare, int totalNumberOfShares,
-			Date openDate, Time openTime, String remarks) {
+			LocalDateTime openDateTime, Time openTime, String remarks) {
 		super();
 		this.id = id;
 		this.companyName = companyName;
 		this.stockExchange = stockExchange;
 		this.pricePerShare = pricePerShare;
 		this.totalNumberOfShares = totalNumberOfShares;
-		this.openDate = openDate;
-		this.openTime = openTime;
+		this.openDateTime = openDateTime;
 		this.remarks = remarks;
 	}
 
@@ -86,22 +85,16 @@ public class IPODetails {
 		this.totalNumberOfShares = totalNumberOfShares;
 	}
 
-	public Date getOpenDate() {
-		return openDate;
+	public LocalDateTime getOpenDate() {
+		return openDateTime;
 	}
 
-	public void setOpenDate(Date openDate) {
-		this.openDate = openDate;
+	public void setOpenDate(LocalDateTime openDate) {
+		this.openDateTime = openDate;
 	}
 
-	public Time getOpenTime() {
-		return openTime;
-	}
 
-	public void setOpenTime(Time openTime) {
-		this.openTime = openTime;
-	}
-
+	
 	public String getRemarks() {
 		return remarks;
 	}
@@ -116,8 +109,7 @@ public class IPODetails {
 		int result = 1;
 		result = prime * result + ((companyName == null) ? 0 : companyName.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((openDate == null) ? 0 : openDate.hashCode());
-		result = prime * result + ((openTime == null) ? 0 : openTime.hashCode());
+		result = prime * result + ((openDateTime == null) ? 0 : openDateTime.hashCode());
 		result = prime * result + pricePerShare;
 		result = prime * result + ((remarks == null) ? 0 : remarks.hashCode());
 		result = prime * result + ((stockExchange == null) ? 0 : stockExchange.hashCode());
@@ -141,15 +133,10 @@ public class IPODetails {
 			return false;
 		if (id != other.id)
 			return false;
-		if (openDate == null) {
-			if (other.openDate != null)
+		if (openDateTime == null) {
+			if (other.openDateTime != null)
 				return false;
-		} else if (!openDate.equals(other.openDate))
-			return false;
-		if (openTime == null) {
-			if (other.openTime != null)
-				return false;
-		} else if (!openTime.equals(other.openTime))
+		} else if (!openDateTime.equals(other.openDateTime))
 			return false;
 		if (pricePerShare != other.pricePerShare)
 			return false;
@@ -167,5 +154,5 @@ public class IPODetails {
 			return false;
 		return true;
 	}
-	
+
 }
